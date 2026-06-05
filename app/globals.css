@@ -1,0 +1,218 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Brand tokens ─────────────────────────────────────────────── */
+:root {
+  /* Paper / cream */
+  --color-paper:       248 245 238;   /* #F8F5EE — warm off-white */
+  --color-paper-deep:  239 233 218;   /* #EFE9DA */
+  --color-cream:       252 250 246;   /* #FCFAF6 — lightest cream */
+
+  /* Strategic Navy */
+  --color-navy:        26  39  68;    /* #1A2744 */
+  --color-navy-deep:   14  22  44;    /* #0E162C */
+  --color-navy-soft:   46  68 112;    /* #2E4470 */
+
+  /* Brass / Gold */
+  --color-brass:      196 151  42;    /* #C4972A */
+  --color-brass-light:220 183  90;    /* #DCB75A */
+
+  /* Ink / text */
+  --color-ink:         18  26  46;    /* #121A2E */
+  --color-charcoal:    44  53  71;    /* #2C3547 */
+  --color-muted:       94 104 124;    /* #5E687C */
+  --color-slate:      150 160 178;    /* #96A0B2 */
+}
+
+/* ─── Base ─────────────────────────────────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-paper text-ink antialiased;
+    font-family: var(--font-body), "Inter", ui-sans-serif, system-ui, sans-serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: rgb(var(--color-brass) / 0.18);
+    color: rgb(var(--color-ink));
+  }
+
+  img { max-width: 100%; height: auto; }
+}
+
+/* ─── Components ───────────────────────────────────────────────── */
+@layer components {
+
+  /* Layout */
+  .section-wrap {
+    @apply mx-auto w-full max-w-[84rem] px-5 sm:px-8 md:px-12 lg:px-16 xl:px-20;
+  }
+  .section-wrap-narrow {
+    @apply mx-auto w-full max-w-[68rem] px-5 sm:px-8 md:px-12 lg:px-16;
+  }
+
+  /* Typography */
+  .eyebrow {
+    font-family: var(--font-sub), "Inter", ui-sans-serif, system-ui, sans-serif;
+    @apply text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-brass;
+  }
+  .eyebrow-navy {
+    font-family: var(--font-sub), "Inter", ui-sans-serif, system-ui, sans-serif;
+    @apply text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-navy/60;
+  }
+  .eyebrow-light {
+    font-family: var(--font-sub), "Inter", ui-sans-serif, system-ui, sans-serif;
+    @apply text-[0.68rem] font-semibold uppercase tracking-[0.3em] text-brass-light;
+  }
+
+  .display-xl {
+    font-family: var(--font-display), "Cormorant Garamond", ui-serif, Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 0.96;
+    letter-spacing: -0.02em;
+  }
+  .display-lg {
+    font-family: var(--font-display), "Cormorant Garamond", ui-serif, Georgia, serif;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 5vw, 4.25rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+  }
+  .display-md {
+    font-family: var(--font-display), "Cormorant Garamond", ui-serif, Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.12;
+    letter-spacing: -0.015em;
+  }
+  .display-sm {
+    font-family: var(--font-display), "Cormorant Garamond", ui-serif, Georgia, serif;
+    font-weight: 500;
+    font-size: clamp(1.375rem, 2vw, 1.75rem);
+    line-height: 1.22;
+    letter-spacing: -0.01em;
+  }
+
+  .dek {
+    font-family: var(--font-body), "Inter", ui-sans-serif, system-ui, sans-serif;
+    @apply max-w-[44rem] text-[1.0625rem] leading-[1.78] text-charcoal md:text-[1.125rem];
+  }
+  .body-prose {
+    @apply text-[0.9375rem] leading-[1.75] text-charcoal/80;
+  }
+  .caption {
+    font-family: var(--font-sub), "Inter", ui-sans-serif, system-ui, sans-serif;
+    @apply text-[0.6875rem] font-medium uppercase tracking-[0.24em] text-muted;
+  }
+
+  /* Dividers */
+  .hairline      { @apply h-px w-full bg-ink/[0.08]; }
+  .hairline-gold { background: linear-gradient(90deg, transparent, rgb(var(--color-brass)/0.35), transparent); height: 1px; }
+  .gold-rule     { @apply inline-block h-px w-14 bg-brass; }
+  .tick          { @apply h-px w-10 bg-brass/70; }
+
+  /* Links */
+  .editorial-link {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 2px;
+    color: rgb(var(--color-ink));
+    transition: color 300ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .editorial-link::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: 0;
+    height: 1px;
+    background: rgb(var(--color-brass));
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .editorial-link:hover { color: rgb(var(--color-navy)); }
+  .editorial-link:hover::after { transform: scaleX(1); }
+
+  .editorial-link-light { color: rgb(var(--color-paper)); }
+  .editorial-link-light:hover { color: rgb(var(--color-brass-light)); }
+  .editorial-link-light::after { background: rgb(var(--color-brass-light)); }
+
+  /* Buttons */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-navy px-7 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-paper shadow-lift transition-[transform,box-shadow,background-color] duration-500 ease-editorial hover:bg-navy-deep hover:shadow-lift-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-navy/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+  }
+  .btn-brass {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brass px-7 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-navy shadow-lift transition-[transform,box-shadow,background-color] duration-500 ease-editorial hover:bg-brass-light hover:shadow-lift-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brass/40 focus-visible:ring-offset-2 focus-visible:ring-offset-paper;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-navy/20 bg-transparent px-7 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-navy transition-[border-color,background-color,color] duration-500 ease-editorial hover:border-brass hover:text-brass focus-visible:outline-none;
+  }
+  .btn-on-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-paper px-7 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-navy shadow-lift transition-[transform,box-shadow] duration-500 ease-editorial hover:bg-cream hover:shadow-lift-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-paper/40 focus-visible:ring-offset-2 focus-visible:ring-offset-navy;
+  }
+  .btn-gold-on-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-brass px-7 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-navy-deep shadow-lift transition-[transform,box-shadow,background-color] duration-500 ease-editorial hover:bg-brass-light hover:shadow-lift-hover focus-visible:outline-none;
+  }
+  .btn-ghost-on-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-paper/30 bg-transparent px-7 py-3.5 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-paper transition-[border-color,background-color] duration-500 ease-editorial hover:border-brass/60 hover:bg-paper/[0.06] focus-visible:outline-none;
+  }
+
+  /* Cards */
+  .card-surface {
+    @apply overflow-hidden rounded-[24px] border border-ink/[0.07] bg-paper shadow-surface;
+  }
+  .card-surface-hover {
+    @apply transition-shadow duration-500 ease-editorial hover:shadow-lift-hover;
+  }
+
+  /* Input */
+  .field {
+    @apply w-full rounded-xl border border-navy/15 bg-paper px-4 py-3.5 text-[0.9375rem] text-ink placeholder:text-muted focus:border-brass/50 focus:outline-none focus:ring-2 focus:ring-brass/20 transition-colors duration-300;
+  }
+  .field-on-dark {
+    @apply w-full rounded-xl border border-paper/20 bg-navy-soft/40 px-4 py-3.5 text-[0.9375rem] text-paper placeholder:text-slate focus:border-brass/60 focus:outline-none focus:ring-2 focus:ring-brass/20 transition-colors duration-300;
+  }
+
+  /* Paper grain atmospheric bg */
+  .paper-grain {
+    background-image:
+      radial-gradient(circle at 20% 20%, rgba(196,151,42,0.04), transparent 55%),
+      radial-gradient(circle at 80% 30%, rgba(26,39,68,0.04), transparent 55%),
+      radial-gradient(circle at 50% 85%, rgba(46,68,112,0.03), transparent 55%);
+  }
+}
+
+/* ─── Animations ─────────────────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.animate-fade-up   { animation: fadeUp  700ms cubic-bezier(0.22,1,0.36,1) both; }
+.animate-fade-in   { animation: fadeIn  600ms cubic-bezier(0.22,1,0.36,1) both; }
+.animate-scale-in  { animation: scaleIn 600ms cubic-bezier(0.22,1,0.36,1) both; }
+
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
