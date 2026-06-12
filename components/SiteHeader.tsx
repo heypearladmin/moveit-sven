@@ -10,6 +10,7 @@ const links = [
   { href: "#who-i-help",  label: "Who I Help" },
   { href: "#method",      label: "My Method" },
   { href: "#about",       label: "About Sven" },
+  { href: "/blog",        label: "Blog" },
   { href: "#contact",     label: "Contact" },
 ] as const;
 
