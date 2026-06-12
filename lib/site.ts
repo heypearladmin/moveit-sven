@@ -8,8 +8,8 @@ export const site = {
 
   phone: "314-803-2406",
   phoneHref: "tel:+13148032406",
-  email: "sskarie@gmail.com",
-  emailHref: "mailto:sskarie@gmail.com",
+  email: "sven@movewithsven.com",
+  emailHref: "mailto:sven@movewithsven.com",
   websiteUrl: "https://www.movewithsven.com",
 
   office: {

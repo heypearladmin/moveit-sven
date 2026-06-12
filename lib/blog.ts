@@ -356,7 +356,7 @@ export const blogPosts: BlogPost[] =
       {
         "heading": "Book a Strategy Call and Get Started with Sven Skarie, Annapolis Strategic Real Estate Consultant",
         "content": [
-          "Sellers interested in initiating their home sale in Maryland markets can easily schedule a strategy call with Annapolis, MD-based Strategic Real Estate Consultant Sven Skarie. Interested individuals should reach out to Sven Skarie at sskarie@gmail.com or via phone at 314-803-2406. The strategy call allows for an in-depth discussion of the selling process, enabling potential clients to experience firsthand the client-focused and data-driven approach of MoveWithSven. This easy start underscores the commitment to effective communication and tailored service that defines the entire selling experience."
+          "Sellers interested in initiating their home sale in Maryland markets can easily schedule a strategy call with Annapolis, MD-based Strategic Real Estate Consultant Sven Skarie. Interested individuals should reach out to Sven Skarie at sven@movewithsven.com or via phone at 314-803-2406. The strategy call allows for an in-depth discussion of the selling process, enabling potential clients to experience firsthand the client-focused and data-driven approach of MoveWithSven. This easy start underscores the commitment to effective communication and tailored service that defines the entire selling experience."
         ]
       },
       {
