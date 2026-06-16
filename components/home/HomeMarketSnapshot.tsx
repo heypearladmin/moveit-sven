@@ -16,7 +16,7 @@ const communities = [
   "Upper Marlboro",
 ];
 
-const TCPA = `By providing your phone number, you consent to receive calls and text messages, including automated messages and AI-assisted communications, from Move With Sven regarding real estate inquiries, market updates, property information, and related services. I agree to receive text messages and phone calls from Move With Sven at the phone number provided. Message frequency varies. Message and data rates may apply. Reply STOP to unsubscribe. Reply HELP for assistance. By submitting this form, you agree to our Terms & Conditions and Privacy Policy.`;
+const TCPA = `I consent to receive non-marketing text messages from Chuck and Sven Team LLC about appointment confirmations, appointment reminders, account notifications, customer support updates, and service-related communications at the phone number provided. Message frequency may vary. Message & data rates may apply. Text HELP for assistance, reply STOP to opt out. I consent to receive marketing text messages from Chuck and Sven Team LLC about special offers, discounts, promotions, marketing updates, and service announcements at the phone number provided. Message frequency may vary. Message & data rates may apply. Text HELP for assistance, reply STOP to opt out. By submitting this form, you agree to our Terms & Conditions and Privacy Policy. SMS consent is optional and not required to submit this form.`;
 
 // Form POSTs to our secure server-side API route → GHL Contacts API
 const SNAPSHOT_ENDPOINT = "/api/snapshot";
