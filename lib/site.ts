@@ -46,7 +46,7 @@ export const site = {
   privacyPath: "/privacy-policy",
   termsPath: "/terms-and-conditions",
 
-  complianceCompanyName: "Chuck and Sven Team LLC",
+  complianceCompanyName: "Chuck And Sven Team LLC dba Premiere Group",
 } as const;
 
 export type SiteConfig = typeof site;

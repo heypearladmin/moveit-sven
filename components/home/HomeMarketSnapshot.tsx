@@ -16,9 +16,11 @@ const communities = [
   "Upper Marlboro",
 ];
 
-const TCPA_TRANSACTIONAL = `I consent to receive non-marketing text messages from Chuck and Sven Team LLC about appointment confirmations, appointment reminders, account notifications, customer support updates, and service-related communications at the phone number provided. Message frequency may vary. Message & data rates may apply. Text HELP for assistance, reply STOP to opt out.`;
+const COMPANY = "Chuck And Sven Team LLC dba Premiere Group";
 
-const TCPA_MARKETING = `I consent to receive marketing text messages from Chuck and Sven Team LLC about special offers, discounts, promotions, marketing updates, and service announcements at the phone number provided. Message frequency may vary. Message & data rates may apply. Text HELP for assistance, reply STOP to opt out.`;
+const TCPA_TRANSACTIONAL = `I consent to receive non-marketing text messages from ${COMPANY} regarding appointment confirmations, appointment reminders, account notifications, customer support updates, and service-related communications. Message frequency varies, message & data rates may apply. Reply HELP for assistance, reply STOP to opt out.`;
+
+const TCPA_MARKETING = `I consent to receive marketing text messages from ${COMPANY} regarding real estate market updates, special offers, promotions, and service announcements. Message frequency varies, message & data rates may apply. Reply HELP for assistance, reply STOP to opt out.`;
 
 // Form POSTs to our secure server-side API route → GHL Contacts API
 const SNAPSHOT_ENDPOINT = "/api/snapshot";
@@ -190,6 +192,19 @@ export function HomeMarketSnapshot() {
                   </div>
                 </div>
 
+                {/* Optional SMS consent checkboxes — appear before submit */}
+                <div className="space-y-3">
+                  <p className="text-[0.63rem] font-semibold uppercase tracking-[0.15em] text-paper/40">Optional — SMS Consent</p>
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" name="consentTransactional" className="mt-0.5 h-4 w-4 shrink-0 accent-brass" />
+                    <span className="text-[0.72rem] leading-relaxed text-paper/60">{TCPA_TRANSACTIONAL}</span>
+                  </label>
+                  <label className="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" name="consentMarketing" className="mt-0.5 h-4 w-4 shrink-0 accent-brass" />
+                    <span className="text-[0.72rem] leading-relaxed text-paper/60">{TCPA_MARKETING}</span>
+                  </label>
+                </div>
+
                 {/* Error message */}
                 {error && (
                   <p className="rounded-xl border border-red-400/30 bg-red-500/10 px-4 py-3 text-[0.85rem] text-red-300">
@@ -212,24 +227,12 @@ export function HomeMarketSnapshot() {
                   ) : "Get My Market Snapshot →"}
                 </button>
 
-                {/* Optional SMS consent checkboxes */}
-                <div className="space-y-3 rounded-2xl border border-paper/10 bg-navy/40 p-4">
-                  <label className="flex items-start gap-3 cursor-pointer">
-                    <input type="checkbox" name="consentTransactional" className="mt-0.5 h-4 w-4 shrink-0 accent-brass" />
-                    <span className="text-[0.68rem] leading-relaxed text-paper/50">{TCPA_TRANSACTIONAL}</span>
-                  </label>
-                  <label className="flex items-start gap-3 cursor-pointer">
-                    <input type="checkbox" name="consentMarketing" className="mt-0.5 h-4 w-4 shrink-0 accent-brass" />
-                    <span className="text-[0.68rem] leading-relaxed text-paper/50">{TCPA_MARKETING}</span>
-                  </label>
-                  <p className="text-[0.63rem] leading-relaxed text-paper/30 pt-1 border-t border-paper/10">
-                    By submitting this form, you agree to our{" "}
-                    <a href={site.termsPath} className="underline hover:text-paper/60">Terms &amp; Conditions</a>
-                    {" "}and{" "}
-                    <a href={site.privacyPath} className="underline hover:text-paper/60">Privacy Policy</a>.
-                    {" "}SMS consent is optional and not required to submit this form.
-                  </p>
-                </div>
+                {/* Links below submit */}
+                <p className="text-center text-[0.68rem] text-paper/35">
+                  <a href={site.privacyPath} className="underline hover:text-paper/60">Privacy Policy</a>
+                  {" | "}
+                  <a href={site.termsPath} className="underline hover:text-paper/60">Terms and Conditions</a>
+                </p>
               </form>
             )}
           </motion.div>
