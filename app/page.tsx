@@ -18,6 +18,7 @@ import { HomeWhoIHelp }         from "@/components/home/HomeWhoIHelp";
 import { HomeTestimonials }     from "@/components/home/HomeTestimonials";
 import { HomeFaq }              from "@/components/home/HomeFaq";
 import { HomeFinalCta }         from "@/components/home/HomeFinalCta";
+import { HomeLatestPosts }      from "@/components/home/HomeLatestPosts";
 
 export const metadata: Metadata = {
   title: "Move With Sven — Strategic Clarity for Every Move | Silver Spring & Bowie Realtor",
@@ -68,6 +69,7 @@ export default function HomePage() {
         <HomeCommunities />
         <HomeWhoIHelp />
         <HomeTestimonials />
+        <HomeLatestPosts />
         <HomeFaq />
         <HomeFinalCta />
       </main>

@@ -10,6 +10,17 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+  async redirects() {
+    return [
+      // Enforce www canonical — redirect bare domain to www
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "movewithsven.com" }],
+        destination: "https://www.movewithsven.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
