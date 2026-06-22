@@ -20,7 +20,7 @@ const ghlHeaders = {
 
 async function createContact(data: {
   firstName: string; lastName: string;
-  email: string; phone: string; community: string;
+  email: string; phone: string;
 }) {
   const res = await fetch(`${GHL_BASE}/contacts/`, {
     method: "POST",
@@ -34,12 +34,8 @@ async function createContact(data: {
       source:     "Move With Sven — DMV Market Snapshot",
       tags: [
         "market-snapshot",
-        `community-${data.community.toLowerCase().replace(/\s+/g, "-")}`,
         "website-lead",
         "heypearl-lead",
-      ],
-      customFields: [
-        { id: "1WLpqj3OvCbjCqxV2mPz", field_value: data.community },
       ],
     }),
   });
@@ -62,7 +58,7 @@ async function addToWorkflow(contactId: string, workflowId: string) {
   }).catch((err) => console.warn(`Workflow ${workflowId} add failed:`, err));
 }
 
-async function createOpportunity(contactId: string, name: string, community: string) {
+async function createOpportunity(contactId: string, name: string) {
   await fetch(`${GHL_BASE}/opportunities/`, {
     method: "POST",
     headers: ghlHeaders,
@@ -71,7 +67,7 @@ async function createOpportunity(contactId: string, name: string, community: str
       pipelineId: PIPELINE_ID,
       stageId:    STAGE_NEW_LEAD,
       contactId,
-      name:       `${name} — ${community} Market Snapshot`,
+      name:       `${name} — DMV Market Snapshot`,
       status:     "open",
       source:     "Move With Sven Website",
     }),
@@ -80,21 +76,18 @@ async function createOpportunity(contactId: string, name: string, community: str
 
 export async function POST(req: NextRequest) {
   try {
-    const { name, email, phone, community } = await req.json();
+    const { firstName, lastName, email, phone } = await req.json();
 
-    if (!name || !email || !phone || !community) {
+    if (!firstName || !email || !phone) {
       return NextResponse.json({ error: "Missing required fields" }, { status: 400 });
     }
 
-    const parts     = name.trim().split(/\s+/);
-    const firstName = parts[0] ?? name;
-    const lastName  = parts.slice(1).join(" ") || "";
-    const fullName  = `${firstName} ${lastName}`.trim();
+    const fullName = `${firstName} ${lastName ?? ""}`.trim();
 
     // 1. Create contact in GHL
     let contactId: string | null = null;
     try {
-      contactId = await createContact({ firstName, lastName, email, phone, community });
+      contactId = await createContact({ firstName, lastName: lastName ?? "", email, phone });
     } catch (ghlErr) {
       console.warn("GHL contact creation failed:", ghlErr);
     }
@@ -105,7 +98,7 @@ export async function POST(req: NextRequest) {
       // 3. Trigger HeyPearl Lead Alert workflow (sends notification to Sven)
       await addToWorkflow(contactId, WORKFLOW_ALERT);
       // 4. Create opportunity in Marketing Pipeline → New Lead stage
-      await createOpportunity(contactId, fullName, community);
+      await createOpportunity(contactId, fullName);
     }
 
     return NextResponse.json({ success: true, contactId });

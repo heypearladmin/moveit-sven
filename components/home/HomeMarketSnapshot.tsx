@@ -5,16 +5,6 @@ import { motion } from "framer-motion";
 import { editorialStagger, fadeUp, fade, transitionBase, transitionFast, viewportOnce } from "./motion";
 import { site } from "@/lib/site";
 
-const communities = [
-  "Silver Spring",
-  "Bowie",
-  "Bethesda",
-  "Rockville",
-  "Hyattsville",
-  "Laurel",
-  "College Park",
-  "Upper Marlboro",
-];
 
 const COMPANY = "Chuck And Sven Team LLC dba Premiere Group";
 
@@ -37,12 +27,10 @@ export function HomeMarketSnapshot() {
 
     const form = e.currentTarget;
     const data = {
-      name:      (form.elements.namedItem("name")      as HTMLInputElement).value,
+      firstName: (form.elements.namedItem("firstName") as HTMLInputElement).value,
+      lastName:  (form.elements.namedItem("lastName")  as HTMLInputElement).value,
       email:     (form.elements.namedItem("email")     as HTMLInputElement).value,
       phone:     (form.elements.namedItem("phone")     as HTMLInputElement).value,
-      community: (form.elements.namedItem("community") as HTMLSelectElement).value,
-      source:    "Move With Sven — DMV Market Snapshot Form",
-      tcpa:      "Consented via website form",
     };
 
     try {
@@ -136,15 +124,27 @@ export function HomeMarketSnapshot() {
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="snap-name" className="mb-1.5 block text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-paper/60">
-                      Full Name
+                    <label htmlFor="snap-firstName" className="mb-1.5 block text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-paper/60">
+                      First Name
                     </label>
                     <input
-                      id="snap-name"
-                      name="name"
+                      id="snap-firstName"
+                      name="firstName"
                       type="text"
                       required
-                      placeholder="Jane Smith"
+                      placeholder="Jane"
+                      className="field-on-dark"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="snap-lastName" className="mb-1.5 block text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-paper/60">
+                      Last Name
+                    </label>
+                    <input
+                      id="snap-lastName"
+                      name="lastName"
+                      type="text"
+                      placeholder="Smith"
                       className="field-on-dark"
                     />
                   </div>
@@ -173,22 +173,6 @@ export function HomeMarketSnapshot() {
                       placeholder="(301) 555-0100"
                       className="field-on-dark"
                     />
-                  </div>
-                  <div>
-                    <label htmlFor="snap-community" className="mb-1.5 block text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-paper/60">
-                      Community
-                    </label>
-                    <select
-                      id="snap-community"
-                      name="community"
-                      required
-                      className="field-on-dark"
-                    >
-                      <option value="">Select a community…</option>
-                      {communities.map((c) => (
-                        <option key={c} value={c}>{c}</option>
-                      ))}
-                    </select>
                   </div>
                 </div>
 
