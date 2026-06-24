@@ -2,8 +2,8 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "movewithsven.com" }],
-      "destination": "https://www.movewithsven.com/$1",
+      "has": [{ "type": "host", "value": "www.movewithsven.com" }],
+      "destination": "https://movewithsven.com/$1",
       "permanent": true
     }
   ]

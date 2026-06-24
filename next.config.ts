@@ -12,11 +12,11 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      // Enforce www canonical — redirect bare domain to www
+      // Enforce bare canonical — redirect www to bare domain
       {
         source: "/:path*",
-        has: [{ type: "host", value: "movewithsven.com" }],
-        destination: "https://www.movewithsven.com/:path*",
+        has: [{ type: "host", value: "www.movewithsven.com" }],
+        destination: "https://movewithsven.com/:path*",
         permanent: true,
       },
     ];

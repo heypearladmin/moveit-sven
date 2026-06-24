@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.excerpt,
-    alternates: { canonical: `https://www.movewithsven.com/blog/${post.slug}` },
+    alternates: { canonical: `https://movewithsven.com/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
@@ -51,9 +51,9 @@ export default async function BlogPostPage({ params }: Props) {
     <>
     <JsonLd schema={blogPostingSchema(post) as Record<string, unknown>} />
     <JsonLd schema={breadcrumbSchema([
-      { name: "Home", url: "https://www.movewithsven.com" },
-      { name: "Blog", url: "https://www.movewithsven.com/blog" },
-      { name: post.title, url: `https://www.movewithsven.com/blog/${post.slug}` },
+      { name: "Home", url: "https://movewithsven.com" },
+      { name: "Blog", url: "https://movewithsven.com/blog" },
+      { name: post.title, url: `https://movewithsven.com/blog/${post.slug}` },
     ]) as Record<string, unknown>} />
     <main id="main" className="bg-paper">
       {/* Hero */}
