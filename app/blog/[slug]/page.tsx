@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogPost, blogPosts } from "@/lib/blog";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { blogPostingSchema, breadcrumbSchema } from "@/lib/seo/schemas";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -46,6 +48,13 @@ export default async function BlogPostPage({ params }: Props) {
   const otherPosts = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
 
   return (
+    <>
+    <JsonLd schema={blogPostingSchema(post) as Record<string, unknown>} />
+    <JsonLd schema={breadcrumbSchema([
+      { name: "Home", url: "https://www.movewithsven.com" },
+      { name: "Blog", url: "https://www.movewithsven.com/blog" },
+      { name: post.title, url: `https://www.movewithsven.com/blog/${post.slug}` },
+    ]) as Record<string, unknown>} />
     <main id="main" className="bg-paper">
       {/* Hero */}
       <div className="relative h-[50vh] min-h-[360px] w-full overflow-hidden bg-navy-deep">
@@ -141,5 +150,6 @@ export default async function BlogPostPage({ params }: Props) {
         </section>
       )}
     </main>
+    </>
   );
 }

@@ -5,6 +5,8 @@ import {
   realEstateAgentSchema,
   faqSchema,
   breadcrumbSchema,
+  websiteSchema,
+  profilePageSchema,
 } from "@/lib/seo/schemas";
 import { HomeHero }             from "@/components/home/HomeHero";
 import { HomeTrust }            from "@/components/home/HomeTrust";
@@ -57,6 +59,8 @@ export default function HomePage() {
       <JsonLd schema={realEstateAgentSchema() as Record<string, unknown>} />
       <JsonLd schema={faqSchema(pageFaqs) as Record<string, unknown>} />
       <JsonLd schema={breadcrumbSchema([{ name: "Home", url: "https://www.movewithsven.com" }]) as Record<string, unknown>} />
+      <JsonLd schema={websiteSchema() as Record<string, unknown>} />
+      <JsonLd schema={profilePageSchema() as Record<string, unknown>} />
 
       <main id="main">
         <HomeHero />
