@@ -31,7 +31,7 @@ const faqs = [
   },
   {
     q: "What brokerage does Sven work with?",
-    a: "Sven Skarie is a licensed Maryland real estate agent with LPT Realty, operating under Move With Sven. His office is located at 257 West St, Annapolis, MD 21401.",
+    a: "Sven Skarie is a licensed Maryland real estate agent with Real Broker, operating under Move With Sven. His office is located at 257 West St, Annapolis, MD 21401.",
   },
   {
     q: "How do I get started?",

@@ -10,7 +10,7 @@ export const site = {
   phoneHref: "tel:+13148032406",
   email: "sven@movewithsven.com",
   emailHref: "mailto:sven@movewithsven.com",
-  websiteUrl: "https://www.movewithsven.com",
+  websiteUrl: "https://movewithsven.com",
 
   office: {
     street: "257 West St",
@@ -21,7 +21,7 @@ export const site = {
   },
 
   brokerage: {
-    name: "LPT Realty",
+    name: "Real Broker",
     licenseLine: "Licensed in Maryland",
   },
 

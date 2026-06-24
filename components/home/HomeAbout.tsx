@@ -63,7 +63,7 @@ export function HomeAbout() {
               {[
                 { label: "Primary Focus", value: "Silver Spring & Bowie" },
                 { label: "Coverage", value: "Full DMV Corridor" },
-                { label: "Brokerage", value: "LPT Realty" },
+                { label: "Brokerage", value: "Real Broker" },
                 { label: "License", value: "Maryland" },
               ].map((c) => (
                 <div key={c.label}>
