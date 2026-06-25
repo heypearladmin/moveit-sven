@@ -218,7 +218,7 @@ export const blogPosts: BlogPost[] =
       }
     ],
     "heroImage": "/images/Bowie Real Estate Pricing Strategies Uncovered 06_11.png",
-    "date": "2025-06-11"
+    "date": "2026-06-11"
   },
   {
     "title": "Comparing MoveWithSven's 5-Step Home Selling Method to Traditional Real Estate Approaches: Effective Strategies for Maryland Sellers",
@@ -367,7 +367,7 @@ export const blogPosts: BlogPost[] =
       }
     ],
     "heroImage": "/images/Comparing MoveWithSven's 5-Step Method to Traditional Real Estate Approaches_ What Sets Us Apart_ 06_11.png",
-    "date": "2025-06-11"
+    "date": "2026-06-11"
   },
   {
     "title": "Maryland Home Buying Guide: Discover How MoveWithSven's 5-Step Method Transforms Your Home Buying Experience",
@@ -606,7 +606,7 @@ export const blogPosts: BlogPost[] =
       }
     ],
     "heroImage": "/images/Discover How MoveWithSven's 5-Step Method Transforms the Home Buying Experience in Maryland 06_11.png",
-    "date": "2025-06-11"
+    "date": "2026-06-11"
   },
   {
     "title": "Discover Your College Park Home Value Today with Accurate Property Valuation Tools",
@@ -851,7 +851,7 @@ export const blogPosts: BlogPost[] =
       }
     ],
     "heroImage": "/images/Discover Your College Park Home Value Today 06_11.png",
-    "date": "2025-06-11"
+    "date": "2026-06-11"
   },
   {
     "title": "How MoveWithSven’s 5-Step Method Stands Out Among Annapolis-Based Strategic Real Estate Consulting for Maryland Markets",
@@ -997,7 +997,7 @@ export const blogPosts: BlogPost[] =
       }
     ],
     "heroImage": "/images/How MoveWithSven's 5-Step Method Stands Out Among DMV Real Estate Strategies 06_11.png",
-    "date": "2025-06-11"
+    "date": "2026-06-11"
   },
   {
     "title": "Understanding Bethesda Real Estate Pricing Strategies for Buyers and Sellers",
@@ -1201,7 +1201,7 @@ export const blogPosts: BlogPost[] =
       }
     ],
     "heroImage": "/images/Understanding Bethesda Real Estate Pricing Strategies 06_11.png",
-    "date": "2025-06-11"
+    "date": "2026-06-11"
   },
   {
     "title": "Understanding MoveWithSven's Three Pricing Lanes: Which Plan Fits Your Real Estate Needs?",
@@ -1367,7 +1367,7 @@ export const blogPosts: BlogPost[] =
       }
     ],
     "heroImage": "/images/Understanding MoveWithSven's Three Pricing Lanes_ Which One Is Right for You_ 06_11.png",
-    "date": "2025-06-11"
+    "date": "2026-06-11"
   },
   {
     "title": "Your Guide to Sven's 5-Step Method: Essential Home Selling Process Steps to Sell Your House Quickly",
@@ -1633,7 +1633,7 @@ export const blogPosts: BlogPost[] =
       }
     ],
     "heroImage": "/images/Your Guide to Sven's 5-Step Method_ Essential Steps to Sell Your Home Effectively 06_11.png",
-    "date": "2025-06-11"
+    "date": "2026-06-11"
   }
 ]
 ;
