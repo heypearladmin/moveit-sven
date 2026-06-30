@@ -21,7 +21,7 @@ const sub = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.movewithsven.com";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://movewithsven.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -87,6 +87,13 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <script
           dangerouslySetInnerHTML={{
             __html: `var script=document.createElement("script");script.setAttribute("nowprocket","");script.setAttribute("nitro-exclude","");script.src="https://reports.heypearl.io/scripts/dynamic_optimization.js";script.dataset.uuid="9e9d97e3-c824-496c-a715-b66a05507e69";script.id="sa-dynamic-optimization";document.head.appendChild(script);`,
+          }}
+        />
+        {/* GA4 */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-541955837" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-541955837');`,
           }}
         />
         {/* Meta Pixel */}
