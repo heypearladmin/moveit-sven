@@ -20,6 +20,7 @@ const socials = [
   { href: site.social.instagram, label: "Instagram" },
   { href: site.social.linkedin,  label: "LinkedIn" },
   { href: site.social.youtube,   label: "YouTube" },
+  { href: site.social.gbp,       label: "Google Business" },
 ];
 
 export function SiteFooter() {

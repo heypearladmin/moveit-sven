@@ -7,6 +7,7 @@ import {
   breadcrumbSchema,
   websiteSchema,
   profilePageSchema,
+  webPageSchema,
 } from "@/lib/seo/schemas";
 import { HomeHero }             from "@/components/home/HomeHero";
 import { HomeTrust }            from "@/components/home/HomeTrust";
@@ -23,10 +24,10 @@ import { HomeFinalCta }         from "@/components/home/HomeFinalCta";
 import { HomeLatestPosts }      from "@/components/home/HomeLatestPosts";
 
 export const metadata: Metadata = {
-  title: "Move With Sven — Strategic Clarity for Every Move | Silver Spring & Bowie Realtor",
+  title: "Move With Sven | Silver Spring & Bowie Realtor",
   description:
     "Sven Skarie is a trusted real estate advisor serving Silver Spring, Bowie, and the greater DMV. Strategic guidance, confident decisions, and hyperlocal expertise across Maryland.",
-  alternates: { canonical: "https://www.movewithsven.com" },
+  alternates: { canonical: "https://movewithsven.com" },
 };
 
 const pageFaqs = [
@@ -58,9 +59,10 @@ export default function HomePage() {
       <JsonLd schema={localBusinessSchema() as Record<string, unknown>} />
       <JsonLd schema={realEstateAgentSchema() as Record<string, unknown>} />
       <JsonLd schema={faqSchema(pageFaqs) as Record<string, unknown>} />
-      <JsonLd schema={breadcrumbSchema([{ name: "Home", url: "https://www.movewithsven.com" }]) as Record<string, unknown>} />
+      <JsonLd schema={breadcrumbSchema([{ name: "Home", url: "https://movewithsven.com" }]) as Record<string, unknown>} />
       <JsonLd schema={websiteSchema() as Record<string, unknown>} />
       <JsonLd schema={profilePageSchema() as Record<string, unknown>} />
+      <JsonLd schema={webPageSchema({ name: "Move With Sven | Silver Spring & Bowie Realtor", url: "https://movewithsven.com", description: "Sven Skarie is a trusted real estate advisor serving Silver Spring, Bowie, and the greater DMV. Strategic guidance, confident decisions, and hyperlocal expertise across Maryland." }) as Record<string, unknown>} />
 
       <main id="main">
         <HomeHero />

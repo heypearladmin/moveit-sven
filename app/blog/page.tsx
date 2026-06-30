@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { blogPosts } from "@/lib/blog";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schemas";
 
 export const metadata: Metadata = {
-  title: "Real Estate Blog — Insights from Sven Skarie | Move With Sven",
+  title: "Real Estate Blog | Move With Sven",
   description:
     "Expert real estate insights for Maryland buyers and sellers. Strategic guidance on pricing, the DMV market, Sven's 5-step method, and hyperlocal community intelligence.",
-  alternates: { canonical: "https://www.movewithsven.com/blog" },
+  alternates: { canonical: "https://movewithsven.com/blog" },
 };
 
 function formatDate(dateStr: string) {
@@ -22,6 +24,12 @@ export default function BlogIndexPage() {
   const [featured, ...rest] = blogPosts;
 
   return (
+    <>
+    <JsonLd schema={breadcrumbSchema([
+      { name: "Home", url: "https://movewithsven.com" },
+      { name: "Blog", url: "https://movewithsven.com/blog" },
+    ]) as Record<string, unknown>} />
+    <JsonLd schema={webPageSchema({ name: "Real Estate Blog | Move With Sven", url: "https://movewithsven.com/blog", description: "Expert real estate insights for Maryland buyers and sellers. Strategic guidance on pricing, the DMV market, Sven's 5-step method, and hyperlocal community intelligence." }) as Record<string, unknown>} />
     <main id="main" className="bg-paper">
       {/* Page header */}
       <section className="bg-navy-deep py-20 text-paper">
@@ -107,5 +115,6 @@ export default function BlogIndexPage() {
         </div>
       </div>
     </main>
+    </>
   );
 }

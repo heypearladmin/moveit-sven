@@ -43,6 +43,7 @@ export function localBusinessSchema() {
       site.social.instagram,
       site.social.linkedin,
       site.social.youtube,
+      site.social.gbp,
     ],
     priceRange: "$$$$",
     openingHours: "Mo-Su 08:00-20:00",
@@ -79,6 +80,7 @@ export function realEstateAgentSchema() {
       site.social.instagram,
       site.social.linkedin,
       site.social.youtube,
+      site.social.gbp,
     ],
   };
 }
@@ -180,6 +182,18 @@ export function profilePageSchema() {
         site.social.youtube,
       ],
     },
+  };
+}
+
+export function webPageSchema({ name, url, description }: { name: string; url: string; description: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name,
+    url,
+    description,
+    isPartOf: { "@type": "WebSite", url: BASE_URL, name: site.brand },
+    breadcrumb: { "@type": "BreadcrumbList", "@id": `${url}#breadcrumb` },
   };
 }
 

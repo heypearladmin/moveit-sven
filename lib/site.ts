@@ -37,6 +37,7 @@ export const site = {
     instagram: "https://www.instagram.com/youragentsven/",
     linkedin: "http://linkedin.com/in/svenskarie/",
     youtube: "http://youtube.com/@youragentsven",
+    gbp: "https://www.google.com/maps/place/Move+With+Sven/@38.9897,-76.9378,17z",
   },
 
   primaryMarkets: ["Silver Spring", "Bowie"],

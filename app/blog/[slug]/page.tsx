@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogPost, blogPosts } from "@/lib/blog";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { blogPostingSchema, breadcrumbSchema } from "@/lib/seo/schemas";
+import { blogPostingSchema, breadcrumbSchema, webPageSchema } from "@/lib/seo/schemas";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -50,6 +50,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <>
     <JsonLd schema={blogPostingSchema(post) as Record<string, unknown>} />
+    <JsonLd schema={webPageSchema({ name: post.title, url: `https://movewithsven.com/blog/${post.slug}`, description: post.excerpt }) as Record<string, unknown>} />
     <JsonLd schema={breadcrumbSchema([
       { name: "Home", url: "https://movewithsven.com" },
       { name: "Blog", url: "https://movewithsven.com/blog" },

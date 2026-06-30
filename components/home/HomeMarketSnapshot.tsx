@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { editorialStagger, fadeUp, fade, transitionBase, transitionFast, viewportOnce } from "./motion";
 import { site } from "@/lib/site";
@@ -16,6 +17,7 @@ const TCPA_MARKETING = `I consent to receive marketing text messages from ${COMP
 const SNAPSHOT_ENDPOINT = "/api/snapshot";
 
 export function HomeMarketSnapshot() {
+  const router = useRouter();
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading]     = useState(false);
   const [error, setError]         = useState("");
@@ -44,6 +46,7 @@ export function HomeMarketSnapshot() {
         throw new Error(body?.error ?? `Request failed (${res.status})`);
       }
       setSubmitted(true);
+      router.push("/thank-you");
     } catch (err) {
       console.error("Form submission error:", err);
       setError("Something went wrong — please try again or call us directly at 314-803-2406.");

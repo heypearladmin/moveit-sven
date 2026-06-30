@@ -26,7 +26,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://movewithsven.com";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Move With Sven — Strategic Clarity for Every Move | Silver Spring & Bowie Realtor",
+    default: "Move With Sven | Silver Spring & Bowie Realtor",
     template: "%s · Move With Sven",
   },
   description: site.description,
