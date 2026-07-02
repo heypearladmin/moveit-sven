@@ -21,7 +21,8 @@ function formatDate(dateStr: string) {
 }
 
 export default function BlogIndexPage() {
-  const [featured, ...rest] = blogPosts;
+  const sorted = [...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const [featured, ...rest] = sorted;
 
   return (
     <>
@@ -59,7 +60,12 @@ export default function BlogIndexPage() {
                 />
               </div>
               <div className="flex flex-col justify-center px-8 py-10 lg:py-14 lg:pr-12">
-                <p className="eyebrow-navy mb-3">Featured</p>
+                <div className="mb-3 flex items-center gap-3">
+                  <p className="eyebrow-navy">Featured</p>
+                  {featured.isNew && (
+                    <span className="inline-flex items-center rounded-full bg-brass px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-[0.18em] text-navy">New</span>
+                  )}
+                </div>
                 <h2 className="display-md text-navy group-hover:text-navy-soft transition-colors duration-300">
                   {featured.title}
                 </h2>
@@ -97,6 +103,9 @@ export default function BlogIndexPage() {
                 />
               </div>
               <div className="flex flex-1 flex-col p-6">
+                {post.isNew && (
+                  <span className="mb-2 inline-flex w-fit items-center rounded-full bg-brass px-2.5 py-0.5 text-[0.6rem] font-bold uppercase tracking-[0.18em] text-navy">New</span>
+                )}
                 <h2 className="display-sm text-navy group-hover:text-navy-soft transition-colors duration-300 line-clamp-3">
                   {post.title}
                 </h2>
