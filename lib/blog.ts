@@ -1642,7 +1642,7 @@ export const blogPosts: BlogPost[] =
     "author": "Sven Skarie",
     "excerpt": "Silver Spring is one of Maryland's most dynamic real estate markets — and in 2026, it rewards buyers and sellers who understand exactly what's driving it. Here's what the data and local intelligence tell us.",
     "date": "2026-06-15",
-    "heroImage": "/images/blog-silver-spring-market.webp",
+    "heroImage": "/images/website-blog-silver-spring-market.png",
     "sections": [
       {
         "heading": "Why Silver Spring Continues to Draw Buyers in 2026",
@@ -1701,7 +1701,7 @@ export const blogPosts: BlogPost[] =
     "author": "Sven Skarie",
     "excerpt": "Buying your first home in Maryland in 2026 is achievable — but the process rewards preparation. Here is everything you need to know before you start searching, from financing to closing.",
     "date": "2026-06-18",
-    "heroImage": "/images/blog-first-time-buyer-maryland.webp",
+    "heroImage": "/images/website-blog-first-time-buyer-maryland.png",
     "sections": [
       {
         "heading": "Why First-Time Buyers in Maryland Face a Unique Set of Decisions",
@@ -1767,7 +1767,7 @@ export const blogPosts: BlogPost[] =
     "author": "Sven Skarie",
     "excerpt": "Selling fast and selling for top dollar are not opposites — but achieving both requires a specific sequence of decisions. Here is the strategic framework that drives fast, high-value sales in the 2026 DMV market.",
     "date": "2026-06-22",
-    "heroImage": "/images/blog-sell-home-fast-dmv.webp",
+    "heroImage": "/images/website-blog-sell-home-fast-dmv.png",
     "sections": [
       {
         "heading": "What 'Selling Fast' Really Means in the 2026 DMV Market",
@@ -1826,7 +1826,7 @@ export const blogPosts: BlogPost[] =
     "author": "Sven Skarie",
     "excerpt": "Closing costs in Maryland surprise buyers and sellers every year. Here is a complete, plain-language breakdown of every fee you should expect — and the legitimate ways to reduce what you pay.",
     "date": "2026-06-25",
-    "heroImage": "/images/blog-maryland-closing-costs.webp",
+    "heroImage": "/images/website-blog-maryland-closing-costs.png",
     "sections": [
       {
         "heading": "What Are Closing Costs and Why Maryland Is Different",
@@ -1885,7 +1885,7 @@ export const blogPosts: BlogPost[] =
     "author": "Sven Skarie",
     "excerpt": "Relocating to the DMV is a significant decision with a tight timeline and high stakes. This guide gives relocating buyers an honest, practical picture of Silver Spring and Bowie — two of Maryland's most compelling options.",
     "date": "2026-06-29",
-    "heroImage": "/images/blog-relocating-to-maryland.webp",
+    "heroImage": "/images/website-blog-relocating-to-maryland.png",
     "isNew": true,
     "sections": [
       {
@@ -1945,7 +1945,7 @@ export const blogPosts: BlogPost[] =
     "author": "Sven Skarie",
     "excerpt": "Staging is not about making your home look like a showroom. It is about removing the obstacles that prevent buyers from seeing themselves living there. Here is what actually moves the needle for Maryland sellers in 2026.",
     "date": "2026-07-02",
-    "heroImage": "/images/blog-home-staging-maryland.webp",
+    "heroImage": "/images/website-blog-home-staging-maryland.png",
     "isNew": true,
     "sections": [
       {
