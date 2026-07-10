@@ -84,11 +84,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${sub.variable}`}>
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `var script=document.createElement("script");script.setAttribute("nowprocket","");script.setAttribute("nitro-exclude","");script.src="https://reports.heypearl.io/scripts/dynamic_optimization.js";script.dataset.uuid="9e9d97e3-c824-496c-a715-b66a05507e69";script.id="sa-dynamic-optimization";document.head.appendChild(script);`,
-          }}
-        />
         {/* GA4 */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-541955837" />
         <script
