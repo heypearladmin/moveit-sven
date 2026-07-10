@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getBlogPost, blogPosts } from "@/lib/blog";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { blogPostingSchema, breadcrumbSchema, webPageSchema } from "@/lib/seo/schemas";
+import { blogPostingSchema, breadcrumbSchema, webPageSchema, faqSchema } from "@/lib/seo/schemas";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -51,6 +51,9 @@ export default async function BlogPostPage({ params }: Props) {
     <>
     <JsonLd schema={blogPostingSchema(post) as Record<string, unknown>} />
     <JsonLd schema={webPageSchema({ name: post.title, url: `https://movewithsven.com/blog/${post.slug}`, description: post.excerpt }) as Record<string, unknown>} />
+    {post.faq && post.faq.length > 0 && (
+      <JsonLd schema={faqSchema(post.faq) as Record<string, unknown>} />
+    )}
     <JsonLd schema={breadcrumbSchema([
       { name: "Home", url: "https://movewithsven.com" },
       { name: "Blog", url: "https://movewithsven.com/blog" },
@@ -101,6 +104,21 @@ export default async function BlogPostPage({ params }: Props) {
             </section>
           ))}
         </article>
+
+        {/* FAQ */}
+        {post.faq && post.faq.length > 0 && (
+          <div className="mt-16">
+            <h2 className="display-sm text-navy mb-8">Frequently Asked Questions</h2>
+            <div className="space-y-6">
+              {post.faq.map((item, i) => (
+                <div key={i} className="rounded-2xl border border-navy/[0.08] bg-paper-deep px-7 py-6">
+                  <h3 className="text-[1rem] font-semibold text-navy leading-snug mb-2">{item.question}</h3>
+                  <p className="text-[0.9375rem] leading-[1.78] text-charcoal/75">{item.answer}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* CTA */}
         <div className="mt-16 rounded-3xl bg-navy-deep px-8 py-12 text-center">
