@@ -36,6 +36,10 @@ export function faqToSlug(question: string): string {
 export interface FaqEntry extends BlogFaq {
   postSlug: string;
   postTitle: string;
+  postExcerpt: string;
+  postHeroImage: string;
+  postDate: string;
+  postCategory: string;
   faqSlug: string;
 }
 
@@ -45,6 +49,10 @@ export function getAllFaqs(): FaqEntry[] {
       ...faq,
       postSlug: post.slug,
       postTitle: post.title,
+      postExcerpt: post.excerpt,
+      postHeroImage: post.heroImage,
+      postDate: post.date,
+      postCategory: categoryFromSlug(post.slug),
       faqSlug: faqToSlug(faq.question),
     }))
   );
@@ -52,6 +60,21 @@ export function getAllFaqs(): FaqEntry[] {
 
 export function getFaqBySlug(slug: string): FaqEntry | undefined {
   return getAllFaqs().find((f) => f.faqSlug === slug);
+}
+
+/** Return up to `limit` FAQs from the same source post (siblings), then from same category */
+export function getRelatedFaqs(entry: FaqEntry, limit = 4): FaqEntry[] {
+  const all = getAllFaqs();
+  const siblings = all.filter(
+    (f) => f.postSlug === entry.postSlug && f.faqSlug !== entry.faqSlug
+  );
+  const crossPost = all.filter(
+    (f) =>
+      f.postSlug !== entry.postSlug &&
+      f.postCategory === entry.postCategory &&
+      f.faqSlug !== entry.faqSlug
+  );
+  return [...siblings, ...crossPost].slice(0, limit);
 }
 
 export function getRelatedPosts(post: BlogPost, limit = 4): BlogPost[] {

@@ -3,9 +3,41 @@ export interface BlogSection {
   content: string[];
 }
 
+export interface FaqTakeaway {
+  text: string;
+}
+
+export interface FaqTableRow {
+  label: string;
+  a: string;
+  b: string;
+}
+
+export interface FaqTable {
+  colA: string;
+  colB: string;
+  rows: FaqTableRow[];
+}
+
+export interface FaqSource {
+  label: string;
+  url: string;
+}
+
+export interface FaqArticleSection {
+  heading?: string;
+  body: string[];
+}
+
 export interface BlogFaq {
   question: string;
   answer: string;
+  /** Authority-page enrichment — all optional; page degrades gracefully without them */
+  takeaways?: FaqTakeaway[];
+  article?: FaqArticleSection[];
+  table?: FaqTable;
+  sources?: FaqSource[];
+  updatedMonth?: string; // e.g. "July 2026"
 }
 
 export interface BlogPost {
@@ -227,7 +259,57 @@ export const blogPosts: BlogPost[] =
     "heroImage": "/images/Bowie Real Estate Pricing Strategies Uncovered 06_11.png",
     "date": "2026-05-18",
     "faq": [
-      {"question": "What factors most influence home prices in Bowie, MD?", "answer": "Proximity to major commuter routes, school district ratings, lot size, and the condition of the home all play a significant role. Bowie sits in Prince George's County, where proximity to Route 50, the Bowie Town Center, and good schools consistently drives demand and sustains values."},
+      {
+        "question": "What factors most influence home prices in Bowie, MD?",
+        "answer": "Proximity to major commuter routes, school district ratings, lot size, and the condition of the home all play a significant role. Bowie sits in Prince George's County, where proximity to Route 50, the Bowie Town Center, and good schools consistently drives demand and sustains values.",
+        "takeaways": [
+          {"text": "School district ratings are one of the top three value drivers in Bowie."},
+          {"text": "Proximity to Route 50 and the Beltway adds a commuter premium of 5–10%."},
+          {"text": "Lot size and condition directly affect appraisal outcomes."},
+          {"text": "Bowie Town Center proximity sustains walkability value year-round."},
+          {"text": "Seasonal demand swings of 3–5% are common — timing matters."}
+        ],
+        "article": [
+          {
+            "heading": "School Districts: The Dominant Value Driver",
+            "body": [
+              "In Bowie, school district assignment is arguably the single most consistent price driver. Homes zoned to higher-rated Prince George's County schools command premiums of 8–15% compared to similar properties in lower-rated zones. Buyers with school-age children routinely filter by school assignment before anything else.",
+              "The practical implication for sellers: if your home sits in a desirable school zone, that's a marketable feature that should be explicitly called out in your listing strategy, not left for buyers to discover on their own."
+            ]
+          },
+          {
+            "heading": "Commuter Access and the Route 50 Premium",
+            "body": [
+              "Bowie's appeal to DC and Annapolis commuters creates a meaningful premium for homes near key access points. Properties within a 5-minute drive of Route 50 on-ramps have historically sold 5–10% faster and at higher per-square-foot prices than those further inland.",
+              "The MARC train at Bowie State University also adds value for transit-dependent buyers — a factor that tends to be underweighted in traditional automated valuations but consistently shows up in comparative market analysis."
+            ]
+          },
+          {
+            "heading": "Condition, Lot Size, and the Appraisal Gap Risk",
+            "body": [
+              "Lender appraisals in Prince George's County are notoriously conservative compared to Montgomery County. This creates an appraisal gap risk for sellers who price aggressively on condition or lot size alone. Sven's approach is to document every upgrade and improvement in a formal seller disclosure package — giving appraisers the evidence they need to justify value rather than leaving it to assumption.",
+              "Lot size matters more in some Bowie sub-markets than others. In neighborhoods like Belair at Bowie, a larger lot with mature trees can add $15,000–$30,000 in perceived value. In attached townhome communities, lot premiums are largely irrelevant."
+            ]
+          }
+        ],
+        "table": {
+          "colA": "Factor",
+          "colB": "Typical Price Impact",
+          "rows": [
+            {"label": "Top-rated school zone", "a": "School district assignment", "b": "+8–15%"},
+            {"label": "Route 50 commuter access", "a": "Within 5 min of on-ramp", "b": "+5–10%"},
+            {"label": "Updated kitchen & baths", "a": "Modern finishes, recent reno", "b": "+4–8%"},
+            {"label": "Oversized lot (Belair area)", "a": "Mature trees, large yard", "b": "+$15k–$30k"},
+            {"label": "Deferred maintenance", "a": "Visible wear, aging systems", "b": "−10–20%"}
+          ]
+        },
+        "sources": [
+          {"label": "Prince George's County Planning Department", "url": "https://www.pgplanning.org"},
+          {"label": "Maryland Association of Realtors Market Data", "url": "https://www.mdrealtor.org/market-data"},
+          {"label": "GreatSchools — Bowie School Ratings", "url": "https://www.greatschools.org/maryland/bowie"}
+        ],
+        "updatedMonth": "July 2026"
+      },
       {"question": "How does Sven Skarie determine a home's market value in Bowie?", "answer": "Sven uses a data-driven process that combines recent comparable sales, active inventory analysis, days-on-market trends, and condition assessment. This forms the basis of his 5-step pricing method, which is designed to position a home competitively while leaving money on the table for neither buyer nor seller."},
       {"question": "Is Bowie a buyer's or seller's market right now?", "answer": "Market conditions in Bowie shift seasonally and annually. In recent periods, inventory has remained relatively tight, which has generally favored sellers. However, homes that are priced correctly from day one consistently outperform those that are overpriced and later reduced. Sven tracks these conditions in real time for his clients."},
       {"question": "How long do homes typically take to sell in Bowie, Maryland?", "answer": "Well-priced homes in Bowie that are properly prepared and photographed have been selling within 10–21 days in recent markets. Overpriced or poorly presented homes can sit for 60–90 days or longer, which ultimately leads to lower final sale prices."},
